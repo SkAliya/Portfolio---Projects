@@ -1,0 +1,73 @@
+@use "../abstracts/variables" as var11;
+@use "../abstracts/mixins" as mix11;
+
+.footer {
+  font-size: 1.4rem;
+  background-color: var11.$color-grey3;
+  padding: 10rem 0;
+  color: var11.$color-gray2;
+  @include mix11.responsive(port) {
+    padding: 8rem 0;
+  }
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    // or add utility cls to ele
+    @include mix11.responsive(port) {
+      margin-bottom: 6rem;
+    }
+  }
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+
+  &__navigation {
+    border-top: 1px solid var11.$color-grey1;
+    padding-top: 2rem;
+    display: inline-block;
+    @include mix11.responsive(port) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      color: var11.$color-gray2;
+      background-color: var11.$color-grey3;
+      transition: all 0.2s;
+    }
+    &:hover,
+    &:active {
+      transform: rotate(5deg) scale(1.3);
+      color: var11.$color-primary;
+      box-shadow: 0 1rem 2rem rgba(#000, 0.4);
+    }
+  }
+  &__copy {
+    border-top: 1px solid var11.$color-grey1;
+    padding-top: 2rem;
+    width: 80%;
+    float: right;
+    font-size: inherit;
+    @include mix11.responsive(port) {
+      width: 100%;
+      float: none;
+    }
+  }
+}

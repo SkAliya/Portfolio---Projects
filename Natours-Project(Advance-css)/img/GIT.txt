@@ -1,0 +1,150 @@
+ WT GIT DO:
+-TRACK CHGES ACROS MUL FILES
+-compare vers of prjct
+-time travel bac to old vers
+-revert to prvs ver
+-collbrte nd share chngs
+-combine chnges
+
+HISTORY:
+linus tarvalds s/w engineer created in 2020 now 90% dev usees git
+who uses git:
+compenies,coderss/developrs,govtmt,scientist,writers
+
+DIFF GIT & GITHUB:
+closely releted
+
+GIT:"its version contrl s/w that runs  locally  on  ur machines u dnld nd dont neeed  internet  & accnt" without touching to github
+
+GITHUB:is a web service it takes git repoes(prjcts) nd host them stores them in cloud makes easier to collabrate with other peopls so its a website u need accnt nd internet nd it takes files loclly from ur lap using "git" nd put there on online nd share  to other ppls ["its an online place to share work using git"]
+
+INSTALL GIT:
+-go steps wise 
+-give name nd email to git to know others that ur changeing checkpoints 
+'git config --global user.name "Shaik Aliya" '
+'git congig --global user.email "skaliya@gmail.com" '
+
+INSTALL GITKRAKEN(GUI)
+https://www.gitkraken.com/
+sign with new accnt give naame nd email 
+
+INTRO TO TERMINAL:
+
+BASICS OF GIT[ADDING & COMMITTNG]:
+-REPO:is a workspace wch trcks nd manages files within a folder it has its own history if u need more repos inside main repo all its have own histories [ex:in 1 main repo u have diffrt prjcts with folders each nd have there own repo for each folder prjct]
+
+-GIT INIT & STATUS:gives info of currnt status of git repo,init- to initialize to create new repo in top-lev folder contains ur prjct, this is do once per prjct 
+[ex:creake folder 'mkdir fol'-->go inside fol 'cd fol'-->check status of currnt fold 'git status'-->now initilie git 'git init']
+-.git directory inside prjct fold its a hidden directory wich contains old history if u wnt to see go to currnt repo nd ls -a then it will shows 
+-DO NOT INIT NEW REPO INSIDE ALREADY INITIALIEZ REPO:do not git init for new folder inside parent fol that is already  git init pls check once is it init 
+[ex:fol1 git init here u initailzed main prjct fol no need to again init child folders[fol2[fol3]] like fol2 git init wrong]
+-COMMITTING:
+steps to commit :1-work on stuff like new fies adding,edit,del/ 2-add changes:group specific chges together/ 3-commit all thos prevs added files
+-GIT ADD:
+          working directory
+                 |
+                 |
+   [git add]staging ADD
+                 |
+          repository COMMIT
+      [git commit -m "mssg"]
+
+ex:prjct folder/main fol it is already git init , inside main fold add/crete new 2 files 
+now its tym to staging, group similar files nd add to .git folder before that check status git status shows mssg[new files shows] need to add 'git add file1 file2' [sep with space] now check status shows msgg of need to commit file's 
+-GIT COMMIT:
+-now its tym to commit changes with valid msg [git commit -m "added new files"]
+
+-GIT LOG:
+its same as status but the info its retives us is "log of commits" with its sepcified msg's [how many commits we done] for a given repo
+
+$ code .{means its open vs ediot }
+vs trick:replace text on left side
+-ATOMIC COMMITS:try to keep each commit focused on a single thing,makes it easier to undo/rollback changes later means  break/create commits for sep set of adds "each set of adds have sep commit its best way "
+
+-COMMITING LARGE MESS:9excaping vim editor,nd changing to vs editor as defult)
+STEPS:(this only need when large msgg for lrg prjct)
+1.first set vs code as editor for long msg,[https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config] link for setting git editor copy the git cmmd  for vs code 	
+[git config --global core.editor "code --wait"] others editors also there ur choice 
+2.make vs code settings search code nd make shell commnd code path
+3.git commit nd enter its redirects to vs code nd waiting for msg  nd save nd come back check log 
+-git log--abbrev-commit:it shorten the commit name instead only prefix show
+**git log --online :its more shorten the name of comit into single line
+other optons also available like[oneline, short, medium, full, fuller, reference, email, raw,]link:https://git-scm.com/docs/git-log
+
+GIT COMMIT --AMEND:git commit -m 'some commit'
+                   git add forgotten.file
+                   git commit --amend
+this useful if u make typo in comit msg or if u forgot to add modiefed file/new file unfortuntly u commited before add that forgot file then u can 
+add that forgot file nd use "--amend" without msg "[git commit --amend"] it takes u vs nd shows prvs comit msg if u want makes chnges/save then forgot file is commited with that same pvs commit msg.##this only works if not commited more than 2 commits to  pvs commit done 
+
+.GITIGNORE FILE:we can tell git wich files nd directories to ignore in a currnt repo using'.gitignore file' inside that file put all file names to ignore these files r not commit by git 
+ex;[secrets,apis keys,credential,operating sys files[.DS_store on mac] log files,dependencies & packages[node_module/ directory ,react package]
+steps:
+-crete directory git init nd crete files js nd seacret file nd npm init into that directory for npm packegs[sass/react/node] this will generate packge.json file new,then add nd commit those files[packg.json,inex.js] but not secrt file beacuse we want to ignore that file ,
+
+-now install react into directory npm install react now check status of git ,shows untracked files secret file nd modified pack.json nd pack-lock.json new file ,node_module\directory 
+
+-now create .gitignore file in direcor nd shift those ignoring file names into .gitignore file [node_module\,pack.json,secreat.txt] nd add that pack_loc.json 
+nd check status now theres nothing to commit
+
+BRANCHES:
+defult branch name is "master" it dosnt do anything spl same as other brances
+MASTER:others says its a official branch for codebase but not like so but from git side master branch is just like other branch it dosnt hold master copy of ur prjct
+MAIN/MASTER:in 2020 github renamed duflt branch from master to main but git def branch is still master
+HEAD:always  points to latest commit u made on master branch ,we can move head from 1 branch of commit to other but master stays at same place 
+-simple pointer refer to currnt "location" in ur repo points to particular branch refec
+- ex:[repo is just like book inside that so many bookmarks/cards there like branches in repo now u can only open 1 bookmark at once that is currt head like that u can refer to 1 branch at tym ]
+
+GIT BRANCH:to view all existing branches in repo by defu every git repo is master,nd see where '*'  is indictaes the branch u currtnly on[to get out of showing output 'q' typee]
+
+GIT BRANCH <BRANCH_NAME>:to create new branch based on curt head,this just create new branch it dosnt switch u to that branch(head stays the same before)
+
+GIT SWITCH <BRANCH-NAME>:once u created new branch use git switch <brch-name> to switch to it.
+ex:[create prjct directory nd make it repo git init now its a master brch nd head points to same aswell,now add files nd commit now master points to curnt commit ,nxt we now create new branch  now check git branch is it switch to new brch/not if not then git switch new brach now it points to new branch nd smakes chnges in files add nd commit see git log to sww comiits nd brnahes we can also switch back to master brch git switch master
+ 
+**GIT SWITCH -C <BRACH-NAME>:shortcut for creating new brach nd switchign to it
+
+-GIT COMMIT -A -M "MSSG":ASHOTCUT FOR ADD ND COMMIT atonce
+git log (master)
+git add files
+git commit
+git bracnh brach1
+git switch branch 
+git commit -a -m "msg"
+git switch master
+
+
+-GIT CHECKOUT <BRANCH-NAME>:switch is newver,older way old school way also do million thisngs others another way of switch brchs ,rarelly used to switch branch ,still works
+
+-if u working on same file then chenges done nd created new brnch nd switch to that git show err to add commit its on stash if u dont work will lose
+"**make shure u always do add commit changes before creating nd swtich branches**" gud practice
+-**but if u r working with 2 files or more ex 2nd file creatd add text to it  then in firt file its ur master, on that create branch nd switch to it nothing err shows beacuse only shows err git when working on same file nd cswitch braches without commiting  
+
+-GIT BRANCH -D/-d/--delete/-D -f together flag it delets forcely BRANCH-NAME:if u want to del branch then go to anywhere of branch or master branch then use flag -D/-d to del specifc branch with branch name
+
+-GIT BRANCH -M RENAME:if u want to rename ur branch name if u make typo/unhappy with name then use flag -m but for this have to go that same branch which ur renaming 
+
+-MERGING BRANCHES:
+GIT MERGE:MAKED IT SUP EASY TO WORK WITHIN SELF-CONTAINED CONEXT
+steps:
+1.switch to / checkout the branch u want to merge the new chnges into(reciving brnch)
+git switch branchname(master/other)
+2.use git merge cmd to merge changes from specific brnch into currnt switched brnch up 
+git merge brnchname(whic brnch to merg/ex:brch1)
+
+-after merge done then the swithced brch[ex:master] points to same loc where the merged brch[ex:branch1] prvs locates
+
+**we marge brcnhes not specific commits
+**we alwasy merge to currnt head brach(i.e is swithced branch)
+-FAST FORWARD MERGE:ITS A SPL CASE MERG,SIMPLE MERGE:
+**after merging if u chnge content of [ex:brch1] then the master brch not updates/r adds content of brch1 its not like that if u merged then all tym it updates eac other merged brch not like that they r sepe brches even after merged
+[-git branch -v:shows comits with mesg along with branches]
+
+-MERGING CONFLICTS:
+it occures
+
+
+
+
+
+

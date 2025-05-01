@@ -1,0 +1,77 @@
+@use "../abstracts/variables" as var9;
+@use "../abstracts/mixins" as mix9;
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(#000, 0.1);
+  background-color: rgba(var9.$color-light, 0.6);
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: var9.$default-font-size;
+  transform: skewX(-12deg);
+  // & > * {
+  //   transform: skewX(10deg);
+  // }
+  @include mix9.responsive(port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include mix9.responsive(phone) {
+    transform: skewX(0);
+  }
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      // if clip-path supprts in browers then below properties applied nd height
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+    @include mix9.responsive(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+  &__img {
+    height: 100%;
+    transition: all 0.5s;
+    transform: translateX(-4rem) scale(1.4);
+  }
+
+  &:hover &__img {
+    filter: blur(5px) brightness(80%);
+    transform: translateX(-4rem) scale(1);
+  }
+
+  &__caption {
+    color: var9.$color-light;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  &__text {
+    transform: skewX(12deg);
+    @include mix9.responsive(phone) {
+      transform: skewX(0);
+    }
+  }
+}

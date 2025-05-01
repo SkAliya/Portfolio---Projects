@@ -1,0 +1,207 @@
+@use "../abstracts/variables" as var8;
+@use "../abstracts/mixins" as mix8;
+.price {
+  height: 52rem;
+  font-size: 2rem;
+  color: var8.$color-gray2;
+  position: relative;
+  perspective: 150rem;
+  -webkit-perspective: 150rem;
+  &__card {
+    border-radius: 3px;
+    overflow: hidden;
+    height: 52rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: all 0.8s ease;
+    box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+    &--front {
+      background-color: var8.$color-light;
+    }
+    &--back {
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          var8.$color-secondary-light,
+          var8.$color-secondary-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          var8.$color-secondary,
+          var8.$color-tertiary
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          var8.$color-tertiary-light,
+          var8.$color-tertiary-dark
+        );
+      }
+      transform: rotateY(180deg);
+    }
+  }
+  &:hover &__card--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__card--back {
+    transform: rotateY(0deg);
+  }
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+  &__only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  &__price {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      // if clip-path supprts in browers then below properties applied nd height
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    &-1 {
+      background-image: linear-gradient(
+          to right bottom,
+          var8.$color-secondary-light,
+          var8.$color-secondary-dark
+        ),
+        url("../img/nat-5.jpg");
+    }
+    &-2 {
+      background-image: linear-gradient(
+          to right bottom,
+          var8.$color-secondary,
+          var8.$color-tertiary
+        ),
+        url("../img/nat-6.jpg");
+    }
+    &-3 {
+      background-image: linear-gradient(
+          to right bottom,
+          var8.$color-tertiary-light,
+          var8.$color-tertiary-dark
+        ),
+        url("../img/nat-7.jpg");
+    }
+  }
+  &__heading {
+    font-size: 2.5rem;
+    color: var8.$color-light;
+    text-align: right;
+    font-weight: 400;
+    text-transform: uppercase;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    &-1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(var8.$color-secondary-light, 0.85),
+        rgba(var8.$color-secondary-dark, 0.85)
+      );
+    }
+    &-2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(var8.$color-secondary, 0.85),
+        rgba(var8.$color-tertiary, 0.85)
+      );
+    }
+    &-3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(var8.$color-tertiary-light, 0.85),
+        rgba(var8.$color-tertiary-dark, 0.85)
+      );
+    }
+  }
+  &__text {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      li {
+        color: var8.$color-grey;
+        text-align: center;
+        // text-transform: uppercase;
+        font-size: 1.5rem;
+        padding: 1rem;
+        &:not(:last-child) {
+          border-bottom: 1px solid var8.$color-grey-light;
+        }
+      }
+    }
+  }
+  // @include mix8.responsive(port)
+  // if want revers way hover:hover
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+    background-color: var8.$color-light;
+    &__card {
+      height: auto;
+      width: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+    &:hover &__card--front {
+      transform: rotateY(0deg);
+    }
+
+    &__text {
+      padding: 1rem 3rem;
+    }
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__box {
+      margin-bottom: 3rem;
+    }
+    &__only {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+    &__price {
+      font-size: 4rem;
+    }
+  }
+}

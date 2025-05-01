@@ -1,0 +1,143 @@
+/* rules */
+/* 
+------personality
+startup & clam
+
+
+----Typography
+-font size
+default:
+8/10/12/14/16/18/20/24/32/36/44/52/62/74/86
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+-font weight
+default:400
+-line height
+default:1
+
+-------color
+primary:#e67e22
+-Tint:
+-shade:
+-Accent:
+-grey:#aaa ,#eee,#767676,#666,#333
+default:#555
+
+-----imgs
+-unsplash
+-figma uifaces
+
+-----border-radius
+
+-----white spaces
+16/20/24/32/48/64/80/96/112/128
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+/********************************** */
+/**************GENERAL****************/
+/********************************** */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  /* scroll-behavior: smooth; */
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+*:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 0.5rem #cf711f;
+}
+body {
+  font-weight: 400;
+  color: #333;
+  line-height: 1;
+  font-family: "Rubik", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+.primary-headings {
+  font-size: 5.2rem;
+  margin-bottom: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: #333;
+}
+.normal-text {
+  font-size: 2rem;
+  line-height: 1.6;
+}
+.secondary-heading {
+  font-size: 4.4rem;
+  margin-bottom: 9.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: #333;
+}
+.teritury-heading {
+  font-size: 3.6rem;
+  margin-bottom: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: #333;
+}
+.small-heading {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e67e22;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin-bottom: 1rem;
+  word-spacing: 1.1px;
+}
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+.hero {
+  max-width: 130rem;
+  align-items: center;
+  /* background-color: aqua; */
+}
+.grid {
+  display: grid;
+  column-gap: 6.2rem;
+  row-gap: 9.6rem;
+}
+/* .margin-bottom {
+} */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+.helper-cls {
+  margin-right: 2rem !important;
+}
+.margin-top {
+  margin-top: 4.8rem !important;
+}
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+.margin-top-sm {
+  margin-top: 2.4rem !important;
+}
+.grid--2cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid--3cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid--4cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid--5cols {
+  grid-template-columns: repeat(5, 1fr);
+}

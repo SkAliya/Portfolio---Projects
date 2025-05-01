@@ -1,0 +1,40 @@
+doctype html 
+html 
+ head  
+  block head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://fonts.googleapis.com/css?family=Lato:300,300i,700"
+        rel="stylesheet")
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="shortcut icon" type="image/png" href="img/favicon.png")
+    title Natours | #{title}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+   
+  
+body(data-alert=`${alert ? alert :""}`)
+  // HEADER 
+  include _header
+  
+  // MAIN CONTENT
+  //- section 
+  //-   h1 main content section 
+  block content 
+    h1 this is placeholder for base content
+
+  // FOOTER
+  include _footer
+  
+  //- script(src="https://cdn.jsdelivr.net/npm/axios@1.8.4/dist/axios.min.js")  
+  //- script(src='/js/leaflet.js')
+  //- script(src='/js/login.js')
+  //- script(src="/js/bundle.js")
+  script(src='https://js.stripe.com/v3/')
+  script(src='/js/bundled/index.js' type='module')
+
+//- script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.8.4/axios.min.js")  
+//- script(src='https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.43/polyfill.min.js')
+
+
+

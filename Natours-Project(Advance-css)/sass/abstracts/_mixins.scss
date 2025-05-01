@@ -1,0 +1,55 @@
+@use "../abstracts/variables" as var6;
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// media-queries
+// ORDER- BASE + TYPOGRAPHY + GENERAL LAYOUTS(HEADER,FOOTER,NAV,GRID) + PAGES(HOME/SECTIONS) + COMPONENETS
+// 1em=16px
+// 600px/16=37.5em
+// >=1800+ [big-screens]
+//  [1200-1800]>=1200 [normal defult style applies]
+//  [900-1200]<=1200 [tab-landscape]
+//  [600-900]<=900 [tab-protert]
+//  [0-600px]<=600 [phones]
+@mixin responsive($breakpoint) {
+  @if $breakpoint==phone {
+    //600/16=37.5em
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  // 900/16=56.25em
+  @if $breakpoint==port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  // 1200/16=75em
+  @if $breakpoint==land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  // 1800/16=112.5em
+  @if $breakpoint==big {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

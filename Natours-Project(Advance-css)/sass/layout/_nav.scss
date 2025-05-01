@@ -1,0 +1,167 @@
+@use "../abstracts/variables" as var12;
+@use "../abstracts/mixins" as mix12;
+
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__btn {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    background-color: var12.$color-light;
+    z-index: 200;
+    text-align: center;
+    cursor: pointer;
+    // this is for humburg center
+    @include mix12.responsive(port) {
+      top: 4rem;
+      right: 4rem;
+    }
+    @include mix12.responsive(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+
+  &__background {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient(
+      var12.$color-secondary,
+      var12.$color-tertiary
+    );
+    z-index: 100;
+    transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+
+    // transform: scale(55);
+    @include mix12.responsive(port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+    @include mix12.responsive(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 150;
+    // width: 100%;
+    width: 0;
+    // visibility: hidden; or
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  &__list {
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 300;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__item {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      color: var12.$color-light;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        var12.$color-light 50%
+      );
+      background-size: 220%;
+      transition: all 0.2s;
+    }
+    &:hover,
+    &:active {
+      color: var12.$color-tertiary;
+      background-position: 100%;
+      transform: translateX(2rem);
+    }
+    span {
+      margin-right: 1.5rem;
+      display: inline-block;
+    }
+  }
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+  &__checkbox:checked ~ &__nav {
+    width: 100%;
+    opacity: 1;
+  }
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+    &,
+    &::before,
+    &::after {
+      display: inline-block;
+      width: 3rem;
+      height: 2px;
+      background-color: var12.$color-grey3;
+      transition: all 0.2s;
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+    }
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+  &__checkbox:checked ~ &__icon {
+    transform: rotate(200deg);
+  }
+  &__btn:hover &__icon::before {
+    top: -1rem;
+  }
+  &__btn:hover &__icon::after {
+    top: 1rem;
+  }
+  &__checkbox:checked ~ &__btn &__icon {
+    background-color: var12.$color-light;
+  }
+  &__checkbox:checked ~ &__btn &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked ~ &__btn &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+  &__checkbox:checked ~ &__btn:hover &__icon {
+    transform: rotate(180deg);
+  }
+}

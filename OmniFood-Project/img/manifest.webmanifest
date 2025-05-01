@@ -1,0 +1,14 @@
+{
+  "icons": [
+    {
+      "src": "omnifood/img/favicon-manifest-webmanifest.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "omnifood/img/favicon-manifest-webmanifest2.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

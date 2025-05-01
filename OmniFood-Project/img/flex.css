@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  border: 10px solid rgb(230, 202, 202);
+  /* flex-flow: column wrap; */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-box-pack: center;
+  /* align-items: flex-start; */
+  flex-direction: column;
+  justify-content: center;
+  /* height: 500px; */
+  /* width: 80%; */
+  /* min-width: 100vw; */
+  /* align-items: center; */
+  /* /* justify-content: center; */
+  /* align-content: center; */
+  /* flex-direction: column; */
+  /* align-items: baseline; */
+  /* justify-content: space-between; */
+  /* gap: 25px; */
+}
+.box {
+  /* width: 34.333333%; */
+
+  /* height: 23%; */
+  /* width: 150px; */
+  padding: 10px;
+  /* font-size: 60px; */
+  text-align: center;
+  /* width: 70px; */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  -webkit-box-flex: 1;
+  flex: 1 1 300px;
+  /* height: 100px; */
+}
+.box1 {
+  color: white;
+  /* font-size: 80px; */
+  -webkit-box-flex: 10;
+  flex: 10 5 400px;
+  /* align-items: stretch; */
+  background-color: rgb(95, 228, 183);
+}
+.box2 {
+  color: white;
+  /* font-size: 120px; */
+  /* align-self: stretch; */
+
+  background-color: rgb(78, 78, 207);
+}
+.box3 {
+  color: white;
+  /* order: 1; */
+  /* align-self: last baseline; */
+  /* font-size: 170px; */
+  /* width: 120px;
+  height: 200px; */
+  /* flex: 2 350px; */
+  background-color: rgb(136, 68, 199);
+}
+.box4 {
+  color: white;
+  /* align-self: flex-start; */
+  /* font-size: 200px; */
+  /* width: 150px;
+  height: 250px;
+  align-items: stretch; */
+  /* flex-basis: 200px; */
+  /* flex: 1 100px; */
+  background-color: rgb(45, 45, 45);
+}
+.box5 {
+  color: white;
+  /* order: -2; */
+  /* font-size: 50px; */
+
+  background-color: rgb(195, 195, 70);
+}
+.box6 {
+  color: white;
+  /* align-self: center; */
+  background-color: rgb(216, 160, 55);
+}
+/* .box7 {
+  color: white;
+  /* order: 2; 
+  background-color: rgb(209, 64, 64);
+}
+.box8 {
+  color: white;
+
+  background-color: rgb(174, 172, 172);
+}
+.box9 {
+  color: white;
+  /* order: -1; 
+  align-self: flex-end;
+  background-color: rgb(123, 227, 123);
+}
+.box10 {
+  color: white;
+  /* font-size: 90px; 
+  background-color: rgb(35, 80, 35);
+} */

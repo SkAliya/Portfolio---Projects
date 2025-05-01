@@ -1,0 +1,33 @@
+@use "../abstracts/variables" as var7;
+@use "../abstracts/mixins" as mix7;
+.card {
+  padding: 2.5rem;
+  font-size: 1.5rem;
+  // width: 115%;
+  background-color: rgba(var7.$color-light, 0.8);
+  border-radius: 3px;
+  transition: all 0.3s;
+  box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.02);
+    box-shadow: 0 2rem 5rem rgba(#000, 0.4);
+  }
+  @include mix7.responsive(port) {
+    padding: 1.5rem;
+  }
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(
+      to right,
+      rgba(var7.$color-secondary, 0.8),
+      rgba(var7.$color-tertiary, 0.8)
+    );
+    @include mix7.responsive(port) {
+      margin-bottom: 0;
+    }
+  }
+}

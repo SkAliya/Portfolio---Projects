@@ -1,0 +1,102 @@
+@use "../abstracts/variables" as var2;
+
+.btn {
+  &.btn,
+  &:link,
+  &:visited {
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.2s;
+    font-size: var2.$default-font-size;
+    position: relative;
+    z-index: 0;
+    border: none;
+    // transform: scale(1);
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(var2.$color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.5);
+      opacity: 0;
+    }
+  }
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(var2.$color-black, 0.2);
+  }
+  &--white {
+    background-color: var2.$color-light;
+    color: var2.$color-grey;
+    &::after {
+      background-color: var2.$color-light;
+    }
+  }
+  &--green {
+    background-color: var2.$color-primary;
+    // background-image: linear-gradient(
+    //   to right bottom,
+    //   var2.$color-secondary,
+    //   var2.$color-tertiary
+    // );
+
+    color: var2.$color-light;
+    &::after {
+      background-color: var2.$color-primary;
+      // background-image: linear-gradient(
+      //   to right bottom,
+      //   var2.$color-secondary,
+      //   var2.$color-tertiary
+      // );
+    }
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: headBtn 0.5s ease-out 0.75s;
+    // new tech
+    animation-fill-mode: backwards;
+  }
+}
+.btn1 {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: var2.$default-font-size;
+    border-bottom: 1px solid var2.$color-tertiary;
+    color: var2.$color-tertiary;
+    transition: all 0.2s;
+    padding: 3px;
+  }
+  &:hover {
+    transform: translateY(-0.3rem);
+    background-color: var2.$color-tertiary;
+    border: none;
+    color: var2.$color-light;
+    box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.15);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba(var2.$color-black, 0.15);
+  }
+}
